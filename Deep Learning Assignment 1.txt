@@ -1,0 +1,32 @@
+1) A summation junction for the input signals is weighted by the respective synaptic weight. Because it is a linear combiner or adder of the weighted input signals, the output of the summation junction can be expressed as follows: y_{sum}=\sum_{i=1}^{n}w_ix_i
+A threshold activation function (or simply the activation function, also known as squashing function) results in an output signal only when an input signal exceeding a specific threshold value comes as an input. It is similar in behaviour to the biological neuron which transmits the signal only when the total input signal meets the firing threshold.
+2) A step function is a function like that used by the original Perceptron. The output is a certain value, A1, if the input sum is above a certain threshold and A0 if the input sum is below a certain threshold. The values used by the Perceptron were A1 = 1 and A0 = 0.
+Binary step function is a threshold-based activation function which means after a certain threshold neuron is activated and below the said threshold neuron is deactivated. 
+3) This is simplified model of real neurons, known as Threshold Logic Unit.A set of synapsesc (i.e connections) brings the activations from the other neurons.
+
+A processing unit sums the inputs, the applies the non-linear activation funcation (i.e threshold / transfer function).
+
+A output line transmit the result to other neurons.
+
+In other word, the input to a neuron arrives in the form of signals.The signals build up in the cell. Finally the cells fires(discharges) through the output. The cell can start building up signals again.
+4) Adaline is a single-unit neuron, which receives input from several units and also from one unit, called bias. An Adeline model consists of trainable weights. The inputs are of two values (+1 or -1) and the weights have signs (positive or negative).
+
+Initially random weights are assigned. The net input calculated is applied to a quantizer transfer function (possibly activation function) that restores the output to +1 or -1. The Adaline model compares the actual output with the target output and with the bias and the adjusts all the weights.
+5) Perceptron networks have several limitations. First, the output values of a perceptron can take on only one of two values (0 or 1) due to the hard-limit transfer function. Second, perceptrons can only classify linearly separable sets of vectors. If a straight line or a plane can be drawn to separate the input vectors into their correct categories, the input vectors are linearly separable. If the vectors are not linearly separable, learning will never reach a point where all vectors are classified properly.
+6) In Single Perceptron / Multi-layer Perceptron(MLP), we only have linear separability because they are composed of input and output layers(some hidden layers in MLP)
+For example, AND, OR functions are linearly-separable & XOR function is not linearly separable.
+7) The XOr problem is that we need to build a Neural Network (a perceptron in our case) to produce the truth table related to the XOr logical operator. This is a binary classification problem. Hence, supervised learning is a better way to solve it. In this case, we will be using perceptrons. Uni layered perceptrons can only work with linearly separable data. But in the following diagram drawn in accordance with the truth table of the XOr loical operator, we can see that the data is NOT linearly separable.
+To solve this problem, we add an extra layer to our vanilla perceptron, i.e., we create a Multi Layered Perceptron (or MLP). We call this extra layer as the Hidden layer. To build a perceptron, we first need to understand that the XOr gate can be written as a combination of AND gates, NOT gates and OR gates in the following way:
+a XOr b = (a AND NOT b)OR(bAND NOTa)
+8) Step1: Now for the corresponding weight vector $\boldsymbol{w} : (\boldsymbol{w_{1}}, \boldsymbol{w_{2}})$ of the input vector $\boldsymbol{x} : (\boldsymbol{x_{1}}, \boldsymbol{x_{2}})$ to the AND and OR node, the associated Perceptron Function can be defined as:
+  \[$\boldsymbol{\hat{y}_{1}} = \Theta\left(w_{1} x_{1}+w_{2} x_{2}+b_{AND}\right)$ \]
+
+  \[$\boldsymbol{\hat{y}_{2}} = \Theta\left(w_{1} x_{1}+w_{2} x_{2}+b_{OR}\right)$ \]
+
+Step2: The output ($\boldsymbol{\hat{y}}_{1}$) from the AND node will be inputed to the NOT node with weight $\boldsymbol{w_{NOT}}$ and the associated Perceptron Function can be defined as:
+  \[$\boldsymbol{\hat{y}_{3}} = \Theta\left(w_{NOT}  \boldsymbol{\hat{y}_{1}}+b_{NOT}\right)$\]
+
+Step3: The output ($\boldsymbol{\hat{y}}_{2}$) from the OR node and the output ($\boldsymbol{\hat{y}}_{3}$) from NOT node as mentioned in Step2 will be inputed to the AND node with weight $(\boldsymbol{w_{AND1}}, \boldsymbol{w_{AND2}})$. Then the corresponding output $\boldsymbol{\hat{y}}$ is the final output of the XOR logic function. The associated Perceptron Function can be defined as:
+  \[$\boldsymbol{\hat{y}} = \Theta\left(w_{AND1}  \boldsymbol{\hat{y}_{3}}+w_{AND2}  \boldsymbol{\hat{y}_{2}}+b_{AND}\right)$\]
+9) In this type of network, we have only two layers input layer and output layer but the input layer does not count because no computation is performed in this layer. The output layer is formed when different weights are applied on input nodes and the cumulative effect per node is taken.
+10) A neural network consists of three layers. The first layer is the input layer. It contains the input neurons that send information to the hidden layer. The hidden layer performs the computations on input data and transfers the output to the output layer.
